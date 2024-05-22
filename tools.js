@@ -7,10 +7,28 @@ module.exports = {
 	
 	bar: function () {
 		console.log("Go for 2");
-	}
+	},
+
+	test1: function() {
+		console.log("INSIDE TOOLS: Hello, World!");
+	},
+	
+    p2: function () {setTimeout( function() {
+	    console.log('hi');
+    },7000)
+}
+	
 };
 
+// const vs let vs var
+const meeting = {
+	time : "monday",
+	location: "shanghai",
+	hour : 82
+}
 
 var zemba = function() {
 	
 }
+
+exports.zem2 = zemba;

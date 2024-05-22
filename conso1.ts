@@ -19,13 +19,18 @@ const server = http.createServer(function (req, res) {
             res.writeHead(404)
             res.write('Error: File not being found!')
         } else {
-            res.write(data)
+            console.log("type of p2: " + typeof tooo.p2);
+            res.write("Data wrote from Server\n:" + data)
             //res.write(filedata)
-            res.write("I am here!!")
+            //res.write("I am here!!")
             console.log(typeof tooo.foo);
             console.log(typeof tooo.bar);
-            res.write(typeof tooo.foo);
-            res.write();
+            console.log("the third function's type: " + typeof tooo.test1);
+            
+            
+            //res.write("Send to me from server:" + typeof tooo.foo);
+            
+            //res.write();
         }
         res.end()
     
@@ -62,3 +67,97 @@ server.listen(port, function (error) {
         console.log(server.timeout);
     }
 })
+
+const isResolve = false;
+
+const promise1 = new Promise((resolve, rej) => {
+    if(isResolve) {
+        resolve(3);
+        console.log("value of resolve:" + typeof resolve);
+        //resolve('promise1 执行态');
+    } else {
+        //return 4;
+        console.log("reject in p1");
+        console.log("Type of resolve:" + typeof resolve);
+        console.log("Value of resolve:" + resolve);
+        rej('promise1 拒绝态');
+    }
+});
+
+
+promise1
+    .then(value2 => {
+        console.log("output from 1st line:" + value2);
+        return value2;
+    }/*,
+        rej => {
+            console.log("Inside 1st reject handler:" + rej);
+            return rej;
+        }*/)
+    .then(value3 => {
+        console.log("console output:" + value3);
+        return value3 + "mom";
+    },
+        rej => {
+            console.log("Inside 2nd reject handler:" + rej);
+            return rej;
+        })
+    
+    /*(rej) => {
+        console.log("catch it here:" + rej);
+        return rej;
+        
+    })*/
+    .then(
+        v4 => {
+        console.log("value of v4:" + v4);
+        return v4 + "3";
+    },
+        error => {
+        console.log("Inside 3rd error here: " + error);
+        return error;
+    }).
+    catch((error) => "output of rejection: " + error);
+
+
+/*
+promise1
+    .then(
+        value => {
+            console.log("value from promise: " + value);
+    }
+    //,  (res, rej) => {
+    //    throw res + "Cause of reject!";
+    )
+    .then(
+        value => {
+            console.log(value);
+        },
+        reason => {
+            console.log(reason);
+        }
+    );
+    */
+
+
+
+const arry1 = [3,5,9];
+
+arry1.forEach(
+    function (i) {
+        console.log(i);
+    }
+);
+
+function asyncForEach(arr, cb) {
+    arr.forEach(function () {
+        setTimeout(cb, 4000);
+    })
+};
+
+asyncForEach(arry1, function(i) {
+    console.log(i);
+})
+
+
+
