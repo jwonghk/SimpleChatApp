@@ -26,6 +26,7 @@ const server = http.createServer(function (req, res) {
             console.log(typeof tooo.foo);
             console.log(typeof tooo.bar);
             console.log("the third function's type: " + typeof tooo.test1);
+            console.log("current module dir:" + __dirname);
             
             
             //res.write("Send to me from server:" + typeof tooo.foo);
