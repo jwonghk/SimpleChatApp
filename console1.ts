@@ -7,7 +7,7 @@ const tooo = require('./tools');
 // Create a server object:
 const server = http.createServer(function (req, res) {
     
- 
+  
     var isDone  = false;
     //const filedata = fs.readFile('inputfile2.txt');
     //filedata = fs.readFileSync('inputfile1.txt');
@@ -27,14 +27,15 @@ const server = http.createServer(function (req, res) {
             console.log(typeof tooo.bar);
             console.log("the third function's type: " + typeof tooo.test1);
             console.log("current module dir:" + __dirname);
+            //res.statusCode = 380;
             
             
             //res.write("Send to me from server:" + typeof tooo.foo);
             
             //res.write();
+            console.log("the status:" + res.statusCode);
         }
         res.end()
-    
     })
 
     
