@@ -12,8 +12,10 @@ const server = http.createServer(function (req, res) {
     //const filedata = fs.readFile('inputfile2.txt');
     //filedata = fs.readFileSync('inputfile1.txt');
     console.log("right after readfile!!");
-    res.writeHead(200, {'Content-Type': 'text/html'})
+    res.writeHead(200, {'Content-Type': 'text/plain'})
     //res.writeHead(200, {'Content-Type': 'text/html'})
+    
+    
     fs.readFile('index.html', function(error, data) {
         if (error) {
             res.writeHead(404)
@@ -35,8 +37,9 @@ const server = http.createServer(function (req, res) {
             //res.write();
             console.log("the status:" + res.statusCode);
         }
-        res.end()
+        res.end("Ending message here! I end now.")
     })
+    
 
     
     
@@ -48,7 +51,7 @@ const server = http.createServer(function (req, res) {
 
 
     // Write a response to the client
-    res.write('Hello World')
+    res.write('Hello World cup')
     //res.write(filedata.toString());
  
     // End the response 
